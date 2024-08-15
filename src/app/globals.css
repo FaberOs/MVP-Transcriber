@@ -2,32 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #fff;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Button Primary Styles */
+.button-primary {
+  background-color: #fca51c;
+  color: black;
+  font-weight: 500;
+}
+
+.button-primary:hover {
+  background-color: #fcb23e;
+}
+
+.button-primary:active {
+  background-color: #fd921e;
+}
+
+.button-primary:disabled {
+  background-color: #fdc166;
+}
+
+/* Button Outline Styles */
+.button-outline {
+  background-color: white;
+  border: 1px solid #e1e1e1;
+  color: black;
+}
+
+.button-outline:hover {
+  border-color: #fca51c;
+  color: #fca51c;
+}
+
+.button-outline:active {
+  border-color: #fd921e;
+  color: #fd921e;
+}
+
+.button-outline:disabled {
+  border-color: #eeeeee;
+  color: #eeeeee;
+}
+
+/* Button Ghost Styles */
+.button-ghost {
+  background-color: transparent;
+  color: black;
+}
+
+.button-ghost:hover {
+  background-color: #eeeeee;
+}
+
+.button-ghost:active {
+  background-color: #cacaca;
+}
+
+.button-ghost:disabled {
+  color: #eeeeee;
+}
+
+/* Sizes */
+.button-large {
+  min-width: 90px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 0 16px;
+  font-size: 16px;
+}
+
+.button-medium {
+  min-width: 82px;
+  height: 36px;
+  border-radius: 4px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.button-small {
+  min-width: 54px;
+  height: 24px;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+.iconButton-large {
+  height: 40px;
+  width: 40px;
+  font-size: 16px;
+}
+
+.iconButton-medium {
+  height: 36px;
+  width: 36px;
+  font-size: 14px;
+}
+
+.iconButton-small {
+  height: 24px;
+  width: 24px;
+  font-size: 12px;
+}
+
+/* Icon Spacing */
+.button-icon {
+  margin: 0 4px;
 }
