@@ -64,23 +64,23 @@ function ProjectsList({ searchTerm }: ProjectsListProps) {
   const columns = [
     {
       name: "Descripción",
-      selector: (row) => row.description || "Desconocido",
+      selector: (row: Project) => row.description || "Desconocido",
       sortable: true,
       wrap: true,
     },
     {
       name: "ID",
-      selector: (row) => row.id,
+      selector: (row: Project) => row.id,
       sortable: true,
     },
     {
       name: "Estado",
-      selector: (row) => row.status,
+      selector: (row: Project) => row.status,
       sortable: true,
     },
     {
       name: "Fecha de Creación",
-      selector: (row) =>
+      selector: (row: Project) =>
         row.createdAt
           ? dayjs(row.createdAt).format("DD/MM/YYYY")
           : "Desconocido",

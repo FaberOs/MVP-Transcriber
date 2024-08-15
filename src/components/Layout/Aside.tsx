@@ -18,6 +18,8 @@ export default function Aside() {
   const isExpandedRoute = ASIDE_EXPANDED_ROUTES.includes(pathname);
   const [isExpanded, setIsExpanded] = useState(isExpandedRoute);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState<any[]>([]);
 
   useEffect(() => {
     setIsExpanded(isExpandedRoute);
@@ -29,6 +31,19 @@ export default function Aside() {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleProjectUpdate = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("http://localhost:5000/api/projects");
+      const data = await response.json();
+      setProjects(data);
+    } catch (error) {
+      console.error("Error fetching updated projects:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -85,7 +100,11 @@ export default function Aside() {
           ))}
         </ul>
       </aside>
-      <UploadModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <UploadModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onUploadComplete={handleProjectUpdate}
+      />
     </>
   );
 }
